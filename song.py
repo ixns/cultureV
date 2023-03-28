@@ -48,6 +48,8 @@ class Song:
             self.lyrics = "Lyrics unavailable"
 
     def outputToHTML(self, path:str):
+        output_file = f"{path}/{self.title}_{self.artist}.html"
+
         template = env.get_template("song_template.html")
         output_html = template.render(
             thumbnail=self.thumbnail_file, 
@@ -57,10 +59,10 @@ class Song:
             audio_file=self.song_file,
             )
 
-        with open("output.html", "w+") as out:
+        with open(output_file, "w+") as out:
             out.write(output_html)
 
-        return "output.html"
+        return output_file
 
     
         
