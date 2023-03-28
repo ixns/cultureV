@@ -19,7 +19,7 @@ def downloadSong(title: str, artist: str):
 
 def main():
     songs = []
-    
+
     with open(inputFile, "r") as f:
         for l in f:
             songs.append({

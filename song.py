@@ -1,9 +1,6 @@
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-env = Environment(
-    loader=PackageLoader("template"),
-    autoescape=select_autoescape()
-)
+
 
 class Song:
     # these are all private functions that
@@ -48,6 +45,11 @@ class Song:
             self.lyrics = "Lyrics unavailable"
 
     def outputToHTML(self, path:str):
+        env = Environment(
+            loader=PackageLoader("template"),
+            autoescape=select_autoescape()
+        )
+
         output_file = f"{path}/{self.title}_{self.artist}.html"
 
         template = env.get_template("song_template.html")
