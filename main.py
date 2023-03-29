@@ -1,5 +1,5 @@
 from pafy import search_videos, download_video
-import pprint
+from pprint import pprint
 
 inputFile = "songs.txt"
 websiteOutputFolder = "html"
@@ -28,7 +28,9 @@ def main():
             })
 
     for s in songs:
-       downloadSong(s["title"], s["artist"])
+       results = search_videos(f"{s['title']} {s['artist']}", 1)
+       pprint(results[0])
+       #downloadSong(s["title"], s["artist"])
 
 
 if __name__ == "__main__":
