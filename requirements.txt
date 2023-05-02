@@ -1,0 +1,4 @@
+pydub 
+mutagen
+bs4
+requests
